@@ -1,8 +1,19 @@
-脚本使用须知：  
-1、splunk_install.sh和splunkforwarder_install.sh可以单独执行安装splunk enterprise和splunk forward  
-2、serial_installsplunk.sh是可以批量安装splunk enterprise,ip.txt存放目标服务器的远程连接用户密码，这里使用的是root用户
-3、splunk_start.sh里的启动路径比如/opt/splunk一定要和splunk_install.sh里的安装路径$splunk_dir/splunk一致
-4、splunkforwarder_start.sh里的启动路径比如/opt/splunkforwarder一定要和splunkforwarder_install.sh里的安装路径$splunk_dir/splunkforwarder一致
-5、如果你是在流量有限或者网速不稳定的环境希望使用serial_installsplunk.sh批量安装splunk enterprise时，请先手动下载splun enterprise的tgz包，上传至
-每一台目标服务器的目录/opt下面，再执行脚本serial_installsplunk.sh  
-6、脚本安装完后请运行命令source /etc/profile激活splunk的环境变量设置
+# 该仓库代码使用环境
+最新安装的最小化版本的centos7.6，没有做任何配置和装任何软件
+
+# 脚本使用说明
+1、首先克隆仓库代码到本地
+2、将代码上传到search(10.8.8.100)所在的服务器
+3、根据部署需要修改文件Splunk-Enterprise-of-linuxwt/ip.txt
+这里假设需要装search(10.8.8.100)、index(10.8.8.101)、uf(10.8.8.102)各一台服务器账号密码均为
+root/sinobridge
+4、根据需要修改文件envconfig.sh和yumconfig.sh里的定义时间服务器的变量ntpserver的值   
+5、在仓库根目录执行脚本 bash envconfig.sh
+
+# 脚本完成的功能
+1、在search建立yum私有仓库并共享给局域网
+2、将index、uf上的yum源更换成search上的私有仓库
+3、关闭了search、index、uf上的firewalld、selinux
+4、安装search、index、uf
+5、配置index(启用索引接收器)、uf(设置数据输入到索引接收器、设置部署客户端)、search(激活部署服务端)
+6、配置了search index uf的管理员账号密码:admin/admin
