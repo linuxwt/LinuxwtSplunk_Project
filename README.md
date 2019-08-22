@@ -16,3 +16,8 @@
 4、安装search、index、uf  
 5、配置index(启用索引接收器)、uf(设置数据输入到索引接收器、设置部署客户端)、search(激活部署服务端)  
 6、配置了search index uf的管理员账号密码:admin/admin  
+
+# TIP  
+1、如果想修改默认splunk账号密码，可以去文件Splunk-Enterprise-of-linuxwt/splunk_install.sh、Splunk-Enterprise-of-linuxwt/splunkforwarder_install.sh修改   
+2、运行脚本后，会把每一台服务器的原yum源备份，如果脚本出错，完成脚本修改后，请把所有服务器的原来的yum源恢复，删除私有源，同时停止search
+上的nginx服务，然后再次运行脚本（bash envconfig.sh）  
