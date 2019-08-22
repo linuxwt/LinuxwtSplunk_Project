@@ -34,9 +34,10 @@ ntpdate ${ntpserver} >>/dev/null 2>&1
 c=$(basename $(ls -l /etc/sysconfig/network-scripts/* | grep ifcfg | grep -v lo | awk -F ' ' '{print $9}'))
 netcard=${c//ifcfg-/}
 local_ip=$(ip addr | grep ${netcard} | grep inet | awk -F ' ' '{print $2}' | awk -F '/' '{print $1}')
-while read ip passwd
+while read ip passwd sf
 do
 [ $ip != "${local_ip}" ] && yumconfig
 done < $(pwd)/Splunk-Enterprise-of-linuxwt/ip.txt
 
-exit 0
+[ $? -eq 0 ] && ( cd $(pwd)/Splunk-Enterprise-of-linuxwt && bash serial_installsplunk.sh ) || exit -1
+

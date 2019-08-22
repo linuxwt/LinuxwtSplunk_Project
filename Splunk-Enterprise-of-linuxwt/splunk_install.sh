@@ -11,8 +11,8 @@
 splunk_dir=${1:-"/opt"}
 
 # set user password of splunk
-splunk_user=${2:-"wangteng"}
-splunk_password=${3:-"wangteng123"}
+splunk_user=${2:-"admin"}
+splunk_password=${3:-"admin123"}
 
 # configure dir of splunk installation
 [ -d ${splunk_dir} ] || mkdir -p ${splunk_dir}

@@ -11,14 +11,14 @@
 splunk_dir=${1:-"/opt"}
 
 # set user password of splunk
-splunk_user=${2:-"wangteng"}
-splunk_password=${3:-"wangteng123"}
+splunk_user=${2:-"admin"}
+splunk_password=${3:-"admin123"}
 
 # configure dir of splunk installation
 [ -d ${splunk_dir} ] || mkdir -p ${splunk_dir}
 
 # download binary package and extract file
-[ -f /usr/bin/wget ] && { cd /opt;wget https://download.splunk.com/products/universalforwarder/releases/7.2.6/linux/splunkforwarder-7.2.6-c0bf0f679ce9-Linux-x86_64.tgz; } || yum -y install wget
+[ -f /usr/bin/wget ] || yum -y install wget
 yum -y install gzip zip &&  tar zvxf splunkforwarder-7.2.6-c0bf0f679ce9-Linux-x86_64.tgz -C ${splunk_dir}
 
 
