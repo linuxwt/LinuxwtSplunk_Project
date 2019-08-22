@@ -4,9 +4,7 @@
 # 脚本使用说明  
 1、首先克隆仓库代码到本地  
 2、将代码上传到search(10.8.8.100)所在的服务器  
-3、根据部署需要修改文件Splunk-Enterprise-of-linuxwt/ip.txt，里面的三列分别表示ip、root密码、splunk组件名 
-这里假设需要装search(10.8.8.100)、index(10.8.8.101)、uf(10.8.8.102)各一台服务器账号密码均为  
-root/sinobridge  
+3、根据部署需要修改文件Splunk-Enterprise-of-linuxwt/ip.txt，里面的三列分别表示ip、root密码、splunk组件名，这里假设需要装search(10.8.8.100)、index(10.8.8.101)、uf(10.8.8.102)，服务器账号密码均为root/sinobridge，同时使用es表示search和index，uf表示uf   
 4、根据需要修改文件envconfig.sh和yumconfig.sh里的定义时间服务器的变量ntpserver的值     
 5、在仓库根目录执行脚本 bash envconfig.sh  
 
