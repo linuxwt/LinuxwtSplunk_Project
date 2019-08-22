@@ -23,3 +23,4 @@
 上的nginx服务，然后再次运行脚本（bash envconfig.sh）  
 3、仓库里存放了两个大文件，所以使用了GIT LFS存储，git clone本仓库后需要下载安装仓库中的gitlfs\*包，然后执行命令git lfs fetch && git lfs pull   
 这样大文件才会出现   
+4、克隆仓库建议使用ssh协议
