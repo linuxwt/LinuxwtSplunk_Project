@@ -41,6 +41,6 @@ EOF
 
 mv -f $(pwd)/LAN_YUM_REPO/rpmdir/* /usr/share/nginx/html/myshare
 mv -f $(pwd)/LAN_YUM_REPO/nginxdir/* /usr/share/nginx/html/myshare
-mv -f $(pwd)/LAN_YUM_REPO/replenish/* /usr/share/nginx/html/myshare
+cp  $(pwd)/LAN_YUM_REPO/replenish/* /usr/share/nginx/html/myshare
 createrepo /usr/share/nginx/html/myshare 
 yum makecache
