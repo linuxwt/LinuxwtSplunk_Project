@@ -14,7 +14,7 @@
 2、将index、uf上的yum源更换成search上的私有仓库  
 3、关闭了search、index、uf上的firewalld、selinux  
 4、安装search、index、uf  
-5、配置index(启用索引接收器)、uf(设置数据输入到索引接收器、设置部署客户端)、search(激活部署服务端)、配置splunk自启动 
+5、配置index(启用索引接收器)、uf(设置数据输入到索引接收器、设置部署客户端)、search(激活部署服务端)、配置splunk自启动    
 6、配置了search index uf的管理员账号密码:admin/admin123  
 
 # TIP  
