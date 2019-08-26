@@ -20,6 +20,6 @@
 # TIP  
 1、如果想修改默认splunk账号密码，需要修改文件Splunk-Enterprise-of-linuxwt/splunk_install.sh、Splunk-Enterprise-of-linuxwt/splunkforwarder_install.sh、Splunk-Enterprise-of-linuxwt/ufconfig.sh、Splunk-Enterprise-of-linuxwt/indexconfig.sh里的账号密码   
 2、运行脚本后，会把每一台服务器的原yum源备份，如果脚本出错，完成脚本修改后，请把所有服务器的原来的yum源恢复，删除私有源，同时停止search
-上的nginx服务，然后再次运行脚本（bash envconfig.sh）  
+上的nginx服务，并在replenish下创建一个空文件，然后再次运行脚本（bash envconfig.sh）  
 3、仓库里存放了两个大文件，所以使用了GIT LFS存储，git clone本仓库后需要下载安装仓库中的gitlfs\*包，然后执行命令git lfs fetch && git lfs pull,这样大文件才会出现   
 4、克隆仓库建议使用ssh协议（因为仓库里上传了splunk压缩文件，比较大，使用https可能因为墙的缘故导致克隆失败）
