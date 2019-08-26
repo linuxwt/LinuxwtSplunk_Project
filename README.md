@@ -15,7 +15,8 @@
 3、关闭了search、index、uf上的firewalld、selinux  
 4、安装search、index、uf  
 5、配置index(启用索引接收器)、uf(设置数据输入到索引接收器、设置部署客户端)、search(设置搜索节点、激活部署服务端)、配置splunk自启动    
-6、配置了search index uf的管理员账号密码:admin/admin123  
+6、配置了search index uf的管理员账号密码:admin/admin123   
+7、可以在ip.txt里添加uf节点   
 
 # TIP  
 1、如果想修改默认splunk账号密码，需要修改文件Splunk-Enterprise-of-linuxwt/splunk_install.sh、Splunk-Enterprise-of-linuxwt/splunkforwarder_install.sh、Splunk-Enterprise-of-linuxwt/ufconfig.sh、Splunk-Enterprise-of-linuxwt/indexconfig.sh、Splunk-Enterprise-of-linuxwt/searchconfig.sh里的账号密码   
