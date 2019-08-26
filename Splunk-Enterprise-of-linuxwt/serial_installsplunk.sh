@@ -78,7 +78,6 @@ EOF
 }
 
 
-
 c=$(basename $(ls -l /etc/sysconfig/network-scripts/* | grep ifcfg | grep -v lo | awk -F ' ' '{print $9}'))
 netcard=${c//ifcfg-/}
 local_ip=$(ip addr | grep ${netcard} | grep inet | awk -F ' ' '{print $2}' | awk -F '/' '{print $1}')
@@ -89,6 +88,7 @@ do
     else
         if [ ${sf} == "in" ];then
             { toolinstall;essh; }
+            $(pwd)/searchconfig.sh
         else
             { toolinstall;ufsh; }
         fi
