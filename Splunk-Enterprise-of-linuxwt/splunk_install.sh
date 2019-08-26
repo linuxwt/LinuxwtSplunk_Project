@@ -2,7 +2,6 @@
 ######script for installing Splunk Enterprise 7.2.6#####################################
 ######you can definite username password  directory of Splunk installation by yourself######
 ######default dir user password are /opt wangteng wangteng123#######
-
 # judge the user of the scipt
 [ ${UID} -ne 0 ] && { echo "the script need root.";exit 1; }
 
@@ -44,3 +43,5 @@ set timeout 200
 expect eof
 exit
 EOF
+
+${splunk_dir}/splunk/bin/splunk enable boot-start -user root

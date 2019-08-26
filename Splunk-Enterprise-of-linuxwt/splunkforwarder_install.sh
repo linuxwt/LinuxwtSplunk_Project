@@ -45,3 +45,5 @@ set timeout 200
 expect eof
 exit
 EOF
+
+${splunk_dir}/splunkforwarder/bin/splunk enable boot-start -user root
