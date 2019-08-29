@@ -14,12 +14,14 @@
 2、将index、uf上的yum源更换成search上的私有仓库  
 3、关闭了search、index、uf上的firewalld、selinux  
 4、安装search、index、uf  
-5、配置index(启用索引接收器)、uf(设置数据输入到索引接收器、设置部署客户端)、search(激活部署服务端)、配置splunk自启动    
-6、配置了search index uf的管理员账号密码:admin/admin123  
+5、配置index(启用索引接收器)、uf(设置数据输入到索引接收器、设置部署客户端)、search(设置搜索节点、激活部署服务端)、配置splunk自启动    
+6、配置了search index uf的管理员账号密码:admin/admin123   
+7、可以在ip.txt里添加uf节点   
 
 # TIP  
-1、如果想修改默认splunk账号密码，需要修改文件Splunk-Enterprise-of-linuxwt/splunk_install.sh、Splunk-Enterprise-of-linuxwt/splunkforwarder_install.sh、Splunk-Enterprise-of-linuxwt/ufconfig.sh、Splunk-Enterprise-of-linuxwt/indexconfig.sh里的账号密码   
+1、如果想修改默认splunk账号密码，需要修改文件Splunk-Enterprise-of-linuxwt/splunk_install.sh、Splunk-Enterprise-of-linuxwt/splunkforwarder_install.sh、Splunk-Enterprise-of-linuxwt/ufconfig.sh、Splunk-Enterprise-of-linuxwt/indexconfig.sh、Splunk-Enterprise-of-linuxwt/searchconfig.sh里的账号密码   
 2、运行脚本后，会把每一台服务器的原yum源备份，如果脚本出错，完成脚本修改后，请把所有服务器的原来的yum源恢复，删除私有源，同时停止search
-上的nginx服务，并在replenish下创建一个空文件，然后再次运行脚本（bash envconfig.sh）  
+上的nginx服务，然后再次运行脚本（bash envconfig.sh）  
 3、仓库里存放了两个大文件，所以使用了GIT LFS存储，git clone本仓库后需要下载安装仓库中的gitlfs\*包，然后执行命令git lfs fetch && git lfs pull,这样大文件才会出现   
-4、克隆仓库建议使用ssh协议，需要在自己的服务器上生成公钥，然后传至我的github上进行许可（因为仓库里上传了splunk压缩文件比较大，使用https可能因为墙的缘故导致克隆失败）
+4、克隆仓库建议使用ssh协议，需要在自己的服务器上生成公钥，然后传至我的github上进行许可（因为仓库里上传了splunk压缩文件比较大，使用https可能因为墙的缘故导致克隆失败）   
+5、脚本中的时间同步是不可或缺的一步，否则设置搜索节点会失败
