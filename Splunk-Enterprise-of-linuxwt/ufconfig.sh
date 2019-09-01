@@ -2,8 +2,8 @@
 
 [ -f /usr/bin/expect ] || yum -y install expect
 /opt/splunkforwarder/bin/splunk enable boot-start -user root
-forward=$(cat ip.txt | grep in | awk '{print $1}')
-deploy=$(cat ip.txt | grep se | awk '{print $1}')
+forward=$(cat ip.txt | grep -w in | awk '{print $1}')
+deploy=$(cat ip.txt | grep -w se | awk '{print $1}')
 /usr/bin/expect << EOF
 set timeout 200
 spawn /opt/splunkforwarder/bin/splunk add forward-server ${forward}:9997
