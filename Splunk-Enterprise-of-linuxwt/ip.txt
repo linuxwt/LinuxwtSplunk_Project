@@ -1,3 +1,2 @@
-10.8.8.100 sinobridge se
-10.8.8.101 sinobridge in
-10.8.8.102 sinobridge uf
+10.8.8.100 sinobridge sg
+10.8.8.101 sinobridge uf
