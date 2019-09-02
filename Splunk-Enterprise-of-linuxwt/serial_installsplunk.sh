@@ -13,37 +13,6 @@ exit
 EOF
 }
 
-essh () {
-/usr/bin/expect << EOF
-set timeout 200
-spawn scp -o StrictHostKeyChecking=no  splunk_install.sh indexconfig.sh splunk-7.2.6-c0bf0f679ce9-Linux-x86_64.tgz ${ip}:/root
-expect "password"
-send "${passwd}\r"
-set timeout 200
-expect eof
-exit
-EOF
-
-/usr/bin/expect << EOF
-set timeout 200
-spawn ssh ${ip} -o StrictHostKeyChecking=no /root/splunk_install.sh
-expect "password"
-send "${passwd}\r"
-set timeout 200
-expect eof
-exit
-EOF
-
-/usr/bin/expect << EOF
-set timeout 200
-spawn ssh ${ip} -o StrictHostKeyChecking=no /root/indexconfig.sh
-expect "password"
-send "${passwd}\r"
-set timeout 200
-expect eof
-exit
-EOF
-}
 
 ufsh () {
 /usr/bin/expect << EOF
@@ -85,12 +54,8 @@ while read ip passwd sf
 do
     if [ $ip == "${local_ip}" ];then
         $(pwd)/splunk_install.sh
+        $(pwd)/indexconfig.sh
     else
-        if [ ${sf} == "in" ];then
-            { toolinstall;essh; }
-            $(pwd)/searchconfig.sh
-        else
-            { toolinstall;ufsh; }
-        fi
+        { toolinstall;ufsh; }
     fi
 done < ip.txt
